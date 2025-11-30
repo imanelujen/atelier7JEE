@@ -1,0 +1,17 @@
+version: "3.9"
+
+services:
+  backend:
+    build: ./atelier7JEE   # or ./atelier7-backend if you rename it
+    ports:
+      - "8080:8080"
+    container_name: springboot-app
+
+  frontend:
+    build: ./atelier7front-app
+    ports:
+      - "4200:80"
+    container_name: angular-app
+    depends_on:
+      - backend
+
